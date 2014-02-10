@@ -23,11 +23,9 @@ public class Main {
 		
 		while(true){
 			if(motorA.getTachoCount()> 180){
-				motorA.resetTachoCount();
 				motorA.backward();
 			}
 			else if(motorA.getTachoCount() < -180){
-				motorA.resetTachoCount();
 				motorA.forward();
 			}	
 			
