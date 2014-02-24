@@ -16,7 +16,7 @@ public class Main {
 		motorA.setSpeed(300);
 		motorB.setSpeed(200);
 		
-
+		
 		motorB.forward();
 		motorA.resetTachoCount();
 		motorA.forward();
