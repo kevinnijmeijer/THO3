@@ -10,7 +10,7 @@ public class MovementController {
 	ColorSensor rightEye = new ColorSensor(SensorPort.S2);
 	
 	static final int threshold = 60;
-	static final int maxSpeed = 100;
+	static final int maxSpeed = 120;
 
 	boolean leftOfLine;
 	boolean rightOfLine;
@@ -37,6 +37,7 @@ public class MovementController {
 		
 		LCD.clear();
 		
+		Button.waitForAnyPress();
 		//some engine speed stuff
 		leftEngine.setSpeed(maxSpeed);
 		rightEngine.setSpeed(maxSpeed);
@@ -50,14 +51,14 @@ public class MovementController {
 			LCD.drawString("rightValue" + rightEye.getLightValue(), 0, 1);
 			
 			
-			if (rightEye.getLightValue() < threshold){
-				rightEngine.setSpeed(maxSpeed/2);
+			if (rightEye.getLightValue() < threshold && leftEye.getLightValue() > threshold){
+				rightEngine.setSpeed(maxSpeed/3);
 				leftEngine.setSpeed(maxSpeed);
 			}
 			
-			else if (leftEye.getLightValue() < threshold){
+			else if (leftEye.getLightValue() < threshold && rightEye.getLightValue() > threshold){
 				rightEngine.setSpeed(maxSpeed);
-				leftEngine.setSpeed(maxSpeed/2);
+				leftEngine.setSpeed(maxSpeed/3);
 			}
 			
 			else{
