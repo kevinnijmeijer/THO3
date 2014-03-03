@@ -1,41 +1,75 @@
 import lejos.nxt.*;
+import lejos.robotics.Color;
 
 public class MovementController {
 	//declare peripherals used in movement
-	NXTRegulatedMotor wheel;
-	NXTRegulatedMotor engine;
-	LightSensor eye;
-	int threshhold = 45;
+	NXTRegulatedMotor leftEngine = Motor.getInstance(0);
+	NXTRegulatedMotor rightEngine = Motor.getInstance(1);
 	
-	public MovementController(NXTRegulatedMotor w, NXTRegulatedMotor e, LightSensor s) {
-		
-		//define peripherals
-		eye = s;
-		engine = e;
-		wheel = w;
-	}
+	ColorSensor leftEye = new ColorSensor(SensorPort.S1);
+	ColorSensor rightEye = new ColorSensor(SensorPort.S2);
+	
+	static final int threshold = 60;
+	static final int maxSpeed = 100;
 
-	public void jesusGrabTheWheel(){
-		
-		Button.waitForAnyPress();
-		int white = eye.getLightValue();
-		LCD.drawString(""+ white, 0, 0, true);
-		
-		Button.waitForAnyPress();
-		int black = eye.getLightValue();
-		LCD.drawString(""+ black, 0, 1, true);
-		
-		engine.setSpeed(25);
-		engine.forward();
-		
-		while(!Button.ESCAPE.isDown()){
-			if (eye.readValue() > threshhold){
-				wheel.rotate(20);
-			}
-			else{
-				wheel.rotate(-20);
-			}
-		}
+	boolean leftOfLine;
+	boolean rightOfLine;
+	
+	public MovementController(){
+		leftEye.setFloodlight(Color.BLUE);
+		rightEye.setFloodlight(Color.BLUE);
 	}
+	public int jesusGrabTheWheel(){
+		
+		//Calibrate highs
+		LCD.drawString("Calibrate highs", 0 , 0);
+		Button.waitForAnyPress();
+		leftEye.calibrateHigh();
+		rightEye.calibrateHigh();
+		
+		LCD.clear();
+		
+		//Calibrate lows
+		LCD.drawString("Calibrate lows", 0, 0);
+		Button.waitForAnyPress();
+		leftEye.calibrateLow();
+		rightEye.calibrateLow();
+		
+		LCD.clear();
+		
+		//some engine speed stuff
+		leftEngine.setSpeed(maxSpeed);
+		rightEngine.setSpeed(maxSpeed);
+		leftEngine.forward();
+		rightEngine.forward();
+		
+		//basic running program
+		while(!Button.ESCAPE.isDown()){
+			LCD.clear();
+			LCD.drawString("LeftValue:" + leftEye.getLightValue(),0,0);
+			LCD.drawString("rightValue" + rightEye.getLightValue(), 0, 1);
+			
+			
+			if (rightEye.getLightValue() < threshold){
+				rightEngine.setSpeed(maxSpeed/2);
+				leftEngine.setSpeed(maxSpeed);
+			}
+			
+			else if (leftEye.getLightValue() < threshold){
+				rightEngine.setSpeed(maxSpeed);
+				leftEngine.setSpeed(maxSpeed/2);
+			}
+			
+			else{
+				leftEngine.setSpeed(maxSpeed);
+				rightEngine.setSpeed(maxSpeed);
+			}
+			
+		}
+		
+		return 1;
+	
+	}
+	
 }
 
