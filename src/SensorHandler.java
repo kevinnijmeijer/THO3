@@ -1,24 +1,18 @@
-
 import java.util.ArrayList;
 
 /**
- * 
- * @author Peter Markotic
+ * @author Peter Markotiç
  * @version 2.0
  * 
- * Holds an array of UpdatingSensors and polls each once every
- * given period of time.
+ * Holds an array of UpdatingSensors and polls each once every given period of time.
  */
 public class SensorHandler extends Thread {
-	private static SensorHandler theHandler;
-	private ArrayList<UpdatingSensor> Sensors;
+	private static SensorHandler theHandler; /*!< This is the static instance of SensorHandler */
+	private ArrayList<UpdatingSensor> Sensors; /*!< This is the ArrayList of UpdatingSensors */
 	
 	/**
 	 * Constructor for the singleton SensorHandler.
-	 * 
-	 * @param none
-	 * @return none
-	 * */
+	 */
 	private SensorHandler(){
 		Sensors = new ArrayList<UpdatingSensor>();
 		start();
@@ -27,7 +21,6 @@ public class SensorHandler extends Thread {
 	/**
 	 * Retrieves a reference to the SensorHandler.
 	 * 
-	 * @param none
 	 * @return SensorHandler
 	 */
 	public static SensorHandler getInstance() {
@@ -38,11 +31,10 @@ public class SensorHandler extends Thread {
 	}
 	
 	/**
-	 * 
 	 * Adds an UpdatingSensor to array for polling
 	 * 
-	 * @param UpdatingSensor us
-	 * @return none
+	 * @param us
+	 * @return void
 	 */
 	public void addSensor(UpdatingSensor us){
 		Sensors.add(us);
@@ -51,8 +43,7 @@ public class SensorHandler extends Thread {
 	/**
 	 * Starts Thread for SensorHandler
 	 * 
-	 * @param none
-	 * @return none
+	 * @return void
 	 */
 	public void run(){
 		while(true){

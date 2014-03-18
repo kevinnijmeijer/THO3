@@ -3,24 +3,19 @@ import lejos.nxt.Motor;
 import lejos.nxt.NXTRegulatedMotor;
 /**
  *
- * @author Peter Markotic
+ * @author Peter Markotiç, Kevin Nijmijer, Michiel Tegelberg
  * @version 2.0
  *
  */
 public class DriveController {
-
-	// The left motor
-	private NXTRegulatedMotor motorA;
-	// The right motor
-	private NXTRegulatedMotor motorC;
-	final int threshold = 50;
-	final int maxSpeed = 200;
-
+	private NXTRegulatedMotor motorA; /*!< This is the left motor */
+	private NXTRegulatedMotor motorC;/*!< This is the right motor */
+	final int threshold = 50;/*!< The threshold for the Colorsensors. A higher value is considered white, a lower value is considered black. */
+	final int maxSpeed = 200; /*!< The maximum speed the robot drives at. */
 
 	/**
 	 * Constructor for the MotorController
 	 * Calls NXT motor instances.
-	 *
 	 */
 	public DriveController() {
 		motorA = Motor.getInstance(0);
@@ -29,11 +24,10 @@ public class DriveController {
 	}
 
 	/**
-	 *
-	 * @param v as velocity in cm/s
+	 * Sets speed v and sets both motors to drive forward.
+	 * 
+	 * @param v velocity of the robot
 	 * @return void
-	 *
-	 *
 	 */
 	public void drive(int v) {
 		motorA.setSpeed(v);
@@ -43,39 +37,69 @@ public class DriveController {
 
 	}
 
+	/**
+	 * Stops the robot 
+	 * 
+	 * @return void
+	 */
 	public void stop() {
-		//motorA.setSpeed(4);
-		//motorC.setSpeed(4);
-		//motorA.forward();
-		//motorC.forward();
 		motorC.stop();
 		motorA.stop();
 	}
 
+	/**
+	 * Resets the TachoCount for both motors
+	 * 
+	 * @return void
+	 */
 	public void resetTachoCounts() {
 		motorA.resetTachoCount();
 		motorC.resetTachoCount();
 	}
 
+	/**
+	 * Returns the tachoCount for the left motor.
+	 * 
+	 * @return int
+	 */
 	public int getTachoA() {
 		return motorA.getTachoCount();
 	}
 
+	/**
+	 * Returns the tachoCount for the right motor.
+	 * 
+	 * @return int
+	 */
 	public int getTachoC() {
 		return motorC.getTachoCount();
 	}
 
+	/**
+	 * Stops the left motor so the robot turns right.
+	 * 
+	 * @return void
+	 */
 	public void correctRight() {
 		motorA.stop();
 		motorC.setSpeed(maxSpeed);
-		//motorA.forward();
 	}
 
+	/**
+	 * Stops the right motor so the robot turns left.
+	 * 
+	 * @return void
+	 */
 	public void correctLeft() {
 		motorC.stop();
 		motorA.setSpeed(maxSpeed);
-		//motorC.forward();
 	}
+	
+	/**
+	 * Initiates an evasive maneuver in which the robot attempts to drive around an obstacle in a clockwise arc.
+	 * 
+	 * @return void
+	 */
 	public void evade() {
 		stop();
 		motorC.setSpeed(maxSpeed);
@@ -84,7 +108,7 @@ public class DriveController {
 		motorC.backward();
 		motorA.forward();
 		while (getTachoA() < 180) {
-			System.out.println("WATCH THE F OUT!");
+			System.out.println("TURNING!");
 		}
 		stop();
 		motorA.setSpeed(maxSpeed/2);
@@ -92,7 +116,7 @@ public class DriveController {
 		motorA.forward();
 		motorC.forward();
 		while (getTachoC() < 1400){
-			System.out.println("ALRIGHT PASSIN' THROUGH!");
+			System.out.println("ARCING!");
 		}
 		stop();
 		motorC.setSpeed(maxSpeed);
@@ -101,7 +125,7 @@ public class DriveController {
 		motorC.backward();
 		motorA.forward();
 		while (getTachoA() < 90) {
-			System.out.println("WATCH THE F OUT!");
+			System.out.println("TURNING!");
 		}
 		stop();
 	}

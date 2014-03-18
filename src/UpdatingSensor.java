@@ -1,8 +1,5 @@
-
-
 /**
- * 
- * @author Peter Markotic
+ * @author Peter Markotiç
  * @version 1.0
  * 
  * Defines updateState() method for UpdatingSensors.

@@ -1,0 +1,83 @@
+\hypertarget{class_sensor_controller}{\section{Sensor\-Controller Class Reference}
+\label{class_sensor_controller}\index{Sensor\-Controller@{Sensor\-Controller}}
+}
+Inheritance diagram for Sensor\-Controller\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sensor_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sensor_controller_adbd82a25c1500ca6d4f877c03f609c90}{Sensor\-Controller} (\hyperlink{class_robot_controller}{Robot\-Controller} rc, \hyperlink{class_my_color_sensor}{My\-Color\-Sensor} right, \hyperlink{class_my_color_sensor}{My\-Color\-Sensor} left)
+\item 
+void \hyperlink{class_sensor_controller_a7cac7725250f0d1b49ef1d09d6c4071d}{state\-Changed} (\hyperlink{interface_updating_sensor}{Updating\-Sensor} s, float old\-Val, float new\-Val)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Peter Markotiç, Michiel Tegelberg 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\-0
+\end{DoxyVersion}
+\hyperlink{class_sensor_controller}{Sensor\-Controller} is the receiver of all changed states and values of the sensors. After receiving, it has the ability to decide what is to be done with those values, calling actions from Motor\-Controller 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_sensor_controller_adbd82a25c1500ca6d4f877c03f609c90}{\index{Sensor\-Controller@{Sensor\-Controller}!Sensor\-Controller@{Sensor\-Controller}}
+\index{Sensor\-Controller@{Sensor\-Controller}!SensorController@{Sensor\-Controller}}
+\subsubsection[{Sensor\-Controller}]{\setlength{\rightskip}{0pt plus 5cm}Sensor\-Controller.\-Sensor\-Controller (
+\begin{DoxyParamCaption}
+\item[{{\bf Robot\-Controller}}]{rc, }
+\item[{{\bf My\-Color\-Sensor}}]{right, }
+\item[{{\bf My\-Color\-Sensor}}]{left}
+\end{DoxyParamCaption}
+)}}\label{class_sensor_controller_adbd82a25c1500ca6d4f877c03f609c90}
+Constructor for \hyperlink{class_sensor_controller}{Sensor\-Controller} Sets the \hyperlink{class_robot_controller}{Robot\-Controller} Instance and adds the Sensors to the \hyperlink{class_sensor_handler}{Sensor\-Handler}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rc} & The instance of \hyperlink{class_robot_controller}{Robot\-Controller} \\
+\hline
+{\em right} & The right \hyperlink{class_my_color_sensor}{My\-Color\-Sensor} \\
+\hline
+{\em left} & The left \hyperlink{class_my_color_sensor}{My\-Color\-Sensor} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_sensor_controller_a7cac7725250f0d1b49ef1d09d6c4071d}{\index{Sensor\-Controller@{Sensor\-Controller}!state\-Changed@{state\-Changed}}
+\index{state\-Changed@{state\-Changed}!SensorController@{Sensor\-Controller}}
+\subsubsection[{state\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void Sensor\-Controller.\-state\-Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Updating\-Sensor}}]{s, }
+\item[{float}]{old\-Val, }
+\item[{float}]{new\-Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sensor_controller_a7cac7725250f0d1b49ef1d09d6c4071d}
+Inherited from interface, receiver values from polled sensors, then sends these through to individual methods for each type of sensor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+{\em old\-Val} & \\
+\hline
+{\em new\-Val} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_sensor_listener}{Sensor\-Listener}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Sensor\-Controller.\-java\end{DoxyCompactItemize}

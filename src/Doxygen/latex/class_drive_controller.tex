@@ -1,0 +1,152 @@
+\hypertarget{class_drive_controller}{\section{Drive\-Controller Class Reference}
+\label{class_drive_controller}\index{Drive\-Controller@{Drive\-Controller}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_drive_controller_a60cc3007214f3b790301fe0f38f31258}{Drive\-Controller} ()
+\item 
+void \hyperlink{class_drive_controller_af219e8f28401307c2f48b3f84076cd32}{drive} (int v)
+\item 
+void \hyperlink{class_drive_controller_af2f91d13c56233955273a599969ba85d}{stop} ()
+\item 
+void \hyperlink{class_drive_controller_a31cbe81465f7134c2fa868a00f01c6fb}{reset\-Tacho\-Counts} ()
+\item 
+int \hyperlink{class_drive_controller_a07150350921a814306f66c82ef633e3f}{get\-Tacho\-A} ()
+\item 
+int \hyperlink{class_drive_controller_aff45070da8524060767daceff546d85e}{get\-Tacho\-C} ()
+\item 
+void \hyperlink{class_drive_controller_a48cee304bd9808b851a0e2a7695dd00b}{correct\-Right} ()
+\item 
+void \hyperlink{class_drive_controller_a9d54a054f61fad504f637f1a63fdb907}{correct\-Left} ()
+\item 
+void \hyperlink{class_drive_controller_ac967935ad5712f94001ac298448fdf51}{evade} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Peter Markotiç, Kevin Nijmijer, Michiel Tegelberg 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\-0 
+\end{DoxyVersion}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_drive_controller_a60cc3007214f3b790301fe0f38f31258}{\index{Drive\-Controller@{Drive\-Controller}!Drive\-Controller@{Drive\-Controller}}
+\index{Drive\-Controller@{Drive\-Controller}!DriveController@{Drive\-Controller}}
+\subsubsection[{Drive\-Controller}]{\setlength{\rightskip}{0pt plus 5cm}Drive\-Controller.\-Drive\-Controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_drive_controller_a60cc3007214f3b790301fe0f38f31258}
+Constructor for the Motor\-Controller Calls N\-X\-T motor instances. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_drive_controller_a9d54a054f61fad504f637f1a63fdb907}{\index{Drive\-Controller@{Drive\-Controller}!correct\-Left@{correct\-Left}}
+\index{correct\-Left@{correct\-Left}!DriveController@{Drive\-Controller}}
+\subsubsection[{correct\-Left}]{\setlength{\rightskip}{0pt plus 5cm}void Drive\-Controller.\-correct\-Left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_drive_controller_a9d54a054f61fad504f637f1a63fdb907}
+Stops the right motor so the robot turns left.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_drive_controller_a48cee304bd9808b851a0e2a7695dd00b}{\index{Drive\-Controller@{Drive\-Controller}!correct\-Right@{correct\-Right}}
+\index{correct\-Right@{correct\-Right}!DriveController@{Drive\-Controller}}
+\subsubsection[{correct\-Right}]{\setlength{\rightskip}{0pt plus 5cm}void Drive\-Controller.\-correct\-Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_drive_controller_a48cee304bd9808b851a0e2a7695dd00b}
+Stops the left motor so the robot turns right.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_drive_controller_af219e8f28401307c2f48b3f84076cd32}{\index{Drive\-Controller@{Drive\-Controller}!drive@{drive}}
+\index{drive@{drive}!DriveController@{Drive\-Controller}}
+\subsubsection[{drive}]{\setlength{\rightskip}{0pt plus 5cm}void Drive\-Controller.\-drive (
+\begin{DoxyParamCaption}
+\item[{int}]{v}
+\end{DoxyParamCaption}
+)}}\label{class_drive_controller_af219e8f28401307c2f48b3f84076cd32}
+Sets speed v and sets both motors to drive forward.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & velocity of the robot \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_drive_controller_ac967935ad5712f94001ac298448fdf51}{\index{Drive\-Controller@{Drive\-Controller}!evade@{evade}}
+\index{evade@{evade}!DriveController@{Drive\-Controller}}
+\subsubsection[{evade}]{\setlength{\rightskip}{0pt plus 5cm}void Drive\-Controller.\-evade (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_drive_controller_ac967935ad5712f94001ac298448fdf51}
+Initiates an evasive maneuver in which the robot attempts to drive around an obstacle in a clockwise arc.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_drive_controller_a07150350921a814306f66c82ef633e3f}{\index{Drive\-Controller@{Drive\-Controller}!get\-Tacho\-A@{get\-Tacho\-A}}
+\index{get\-Tacho\-A@{get\-Tacho\-A}!DriveController@{Drive\-Controller}}
+\subsubsection[{get\-Tacho\-A}]{\setlength{\rightskip}{0pt plus 5cm}int Drive\-Controller.\-get\-Tacho\-A (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_drive_controller_a07150350921a814306f66c82ef633e3f}
+Returns the tacho\-Count for the left motor.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\hypertarget{class_drive_controller_aff45070da8524060767daceff546d85e}{\index{Drive\-Controller@{Drive\-Controller}!get\-Tacho\-C@{get\-Tacho\-C}}
+\index{get\-Tacho\-C@{get\-Tacho\-C}!DriveController@{Drive\-Controller}}
+\subsubsection[{get\-Tacho\-C}]{\setlength{\rightskip}{0pt plus 5cm}int Drive\-Controller.\-get\-Tacho\-C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_drive_controller_aff45070da8524060767daceff546d85e}
+Returns the tacho\-Count for the right motor.
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\hypertarget{class_drive_controller_a31cbe81465f7134c2fa868a00f01c6fb}{\index{Drive\-Controller@{Drive\-Controller}!reset\-Tacho\-Counts@{reset\-Tacho\-Counts}}
+\index{reset\-Tacho\-Counts@{reset\-Tacho\-Counts}!DriveController@{Drive\-Controller}}
+\subsubsection[{reset\-Tacho\-Counts}]{\setlength{\rightskip}{0pt plus 5cm}void Drive\-Controller.\-reset\-Tacho\-Counts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_drive_controller_a31cbe81465f7134c2fa868a00f01c6fb}
+Resets the Tacho\-Count for both motors
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_drive_controller_af2f91d13c56233955273a599969ba85d}{\index{Drive\-Controller@{Drive\-Controller}!stop@{stop}}
+\index{stop@{stop}!DriveController@{Drive\-Controller}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}void Drive\-Controller.\-stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_drive_controller_af2f91d13c56233955273a599969ba85d}
+Stops the robot
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Drive\-Controller.\-java\end{DoxyCompactItemize}

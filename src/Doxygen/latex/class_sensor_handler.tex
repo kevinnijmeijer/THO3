@@ -1,0 +1,79 @@
+\hypertarget{class_sensor_handler}{\section{Sensor\-Handler Class Reference}
+\label{class_sensor_handler}\index{Sensor\-Handler@{Sensor\-Handler}}
+}
+Inheritance diagram for Sensor\-Handler\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sensor_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_sensor_handler_abd37546cd6e5ab5a88f81f07fdc679ef}{add\-Sensor} (\hyperlink{interface_updating_sensor}{Updating\-Sensor} us)
+\item 
+void \hyperlink{class_sensor_handler_afc263497e055f62dbd9e650aaa10611c}{run} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_sensor_handler}{Sensor\-Handler} \hyperlink{class_sensor_handler_a67a5f768ddab8ef68ea49c3d82ca8fcf}{get\-Instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Peter Markotiç 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\-0
+\end{DoxyVersion}
+Holds an array of Updating\-Sensors and polls each once every given period of time. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_sensor_handler_abd37546cd6e5ab5a88f81f07fdc679ef}{\index{Sensor\-Handler@{Sensor\-Handler}!add\-Sensor@{add\-Sensor}}
+\index{add\-Sensor@{add\-Sensor}!SensorHandler@{Sensor\-Handler}}
+\subsubsection[{add\-Sensor}]{\setlength{\rightskip}{0pt plus 5cm}void Sensor\-Handler.\-add\-Sensor (
+\begin{DoxyParamCaption}
+\item[{{\bf Updating\-Sensor}}]{us}
+\end{DoxyParamCaption}
+)}}\label{class_sensor_handler_abd37546cd6e5ab5a88f81f07fdc679ef}
+Adds an \hyperlink{interface_updating_sensor}{Updating\-Sensor} to array for polling
+
+
+\begin{DoxyParams}{Parameters}
+{\em us} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_sensor_handler_a67a5f768ddab8ef68ea49c3d82ca8fcf}{\index{Sensor\-Handler@{Sensor\-Handler}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!SensorHandler@{Sensor\-Handler}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Sensor\-Handler} Sensor\-Handler.\-get\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_sensor_handler_a67a5f768ddab8ef68ea49c3d82ca8fcf}
+Retrieves a reference to the \hyperlink{class_sensor_handler}{Sensor\-Handler}.
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_sensor_handler}{Sensor\-Handler} 
+\end{DoxyReturn}
+\hypertarget{class_sensor_handler_afc263497e055f62dbd9e650aaa10611c}{\index{Sensor\-Handler@{Sensor\-Handler}!run@{run}}
+\index{run@{run}!SensorHandler@{Sensor\-Handler}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void Sensor\-Handler.\-run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_sensor_handler_afc263497e055f62dbd9e650aaa10611c}
+Starts Thread for \hyperlink{class_sensor_handler}{Sensor\-Handler}
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Sensor\-Handler.\-java\end{DoxyCompactItemize}

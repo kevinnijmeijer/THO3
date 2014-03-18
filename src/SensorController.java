@@ -1,11 +1,8 @@
-
 import lejos.nxt.*;
 import lejos.robotics.Color;
 
-
 /**
- * 
- * @author Peter Markotic
+ * @author Peter Markotiç, Michiel Tegelberg
  * @version 2.0
  * 
  * SensorController is the receiver of all changed states and values
@@ -13,19 +10,20 @@ import lejos.robotics.Color;
  * with those values, calling actions from MotorController
  */
 public class SensorController implements SensorListener {
-	private RobotController rc;
 	
-	private MyColorSensor leftEye;
-	private MyColorSensor rightEye;
-	private MyUltrasonicSensor glasses;
-	
-	private SensorHandler sh;
+	private RobotController rc; /*!< This is the instance of RobotController */
+	private MyColorSensor leftEye; /*!< This is the instance of the left ColorSensor */
+	private MyColorSensor rightEye;/*!< This is the instance of the right ColorSensor */
+	private MyUltrasonicSensor glasses;/*!< This is the instance of the UltrasonicSensor */
+	private SensorHandler sh;/*!< This is the instance of SensorHandler */
 	
 	/**
 	 * Constructor for SensorController
+	 * Sets the RobotController Instance and adds the Sensors to the SensorHandler.
 	 * 
-	 * @param none
-	 * @return none
+	 * @param rc The instance of RobotController
+	 * @param right The right MyColorSensor
+	 * @param left The left MyColorSensor
 	 */
 	public SensorController(RobotController rc, MyColorSensor right, MyColorSensor left) {
 		this.rc = rc;
@@ -37,9 +35,6 @@ public class SensorController implements SensorListener {
 		glasses = new MyUltrasonicSensor(SensorPort.S3);
 		glasses.addListener(this);
 		
-		//leftEye.setFloodlight(Color.BLUE);
-		//rightEye.setFloodlight(Color.BLUE);
-			
 		sh = SensorHandler.getInstance();
 		sh.addSensor(leftEye);
 		sh.addSensor(glasses);
@@ -51,10 +46,10 @@ public class SensorController implements SensorListener {
 	 * Inherited from interface, receiver values from polled sensors,
 	 * then sends these through to individual methods for each type of sensor.
 	 * 
-	 * @param UpdatingSensor s
-	 * @param float oldVal
-	 * @param float newVal
-	 * @return none
+	 * @param s
+	 * @param oldVal
+	 * @param newVal
+	 * @return void
 	 */
 	public void stateChanged(UpdatingSensor s, float oldVal, float newVal) {
 		// Pass on to the designated methods

@@ -1,9 +1,5 @@
-
-
-
 /**
- * 
- * @author Peter Markotic
+ * @author Peter Markotiç
  * @version 1.0
  * 
  * Defines the stateChanged method for SensorListeners

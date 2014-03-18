@@ -3,20 +3,30 @@ import lejos.nxt.*;
 
 /**
  * 
- * @author Kevin Nijmeijer
+ * @author Kevin Nijmeijer, Michiel Tegelberg
  * @version 2.0
  *
  */
 public class RobotController{	
-	// Objects
-	private SensorController sc;
-	private DriveController dc;
 	
-	private int valueLeft, valueRight ,objectDistanceLimit;
+	private SensorController sc; /*!< This is a private instance of SensorController */
+	private DriveController dc; /*!< This is a private instance of DriveController */
+	
+	private int valueLeft;  /*!< This is the holding variable for the value of the left ColorSensor */
+	private int	valueRight; /*!< This is the holding variable for the value of the right ColorSensor */
+	private int	objectDistanceLimit;  /*!< This is the value of the ultraSonicSensor at which an evasive maneuver will be initiated */
 
 	
 	/**
-	 * Constructor
+	 * Constructor for RobotController
+	 * 
+	 * Makes an instance of SensorController with the calibrated left and right ColorSensor.
+	 * Makes an instance of DriveController 
+	 * Sets the objectDistanceLimit to 20
+	 * 
+	 * @param right the right calibrated MyColorSensor from the Calibrate class.
+	 * @param left the left calibrated MyColorSensor from the Calibrate class.
+	 * 
 	 */
 	public RobotController(MyColorSensor right, MyColorSensor left) {
 		sc = new SensorController(this, right, left);
@@ -26,10 +36,11 @@ public class RobotController{
 	}
 
 	/**
-	 *  Decides what to do with the given Ultrasonic value
-	 * @param float oldVal
-	 * @param float newVal
+	 * Decides what to do with the given Ultrasonic value
 	 * 
+	 * @param oldVal the last updated value for the Ultrasonic Value
+	 * @param newVal the current value for Ultrasonic
+	 * @return void
 	 */
 	public void processUltrasonic(float oldVal, float newVal) {
 		//LCD.drawString("ultra:" + newVal, 0,0);
@@ -41,39 +52,39 @@ public class RobotController{
 	}
 	
 	/**
-	 *  Decides what to do with the given Color value.
-	 *  Left of the robot
-	 * @param float oldVal
-	 * @param float newVal
+	 * Decides what to do with the given Light value of the right ColorSensor.
+	 * 
+	 * @param oldVal is not used
+	 * @param newVal is the current value
+	 * @return void
 	 */
 	public void processRight(float oldVal, float newVal) {
 		valueRight = (int)newVal;
-		//LCD.drawString("right:" + valueRight, 0,1);
 		check();
-		//dc.correctRight();
 	}	
 	/**
-	 *  Decides what to do with given Light value
-	 *  Right of the robot
-	 * @param float oldVal
-	 * @param float newVal
+	 * Decides what to do with given Light valueof the left ColorSensor.
+	 * 
+	 * @param oldVal is not used
+	 * @param newVal is the current value
+	 * @return void
 	 */
 	public void processLeft(float oldVal, float newVal) {
 		valueLeft = (int)newVal;
-		//LCD.drawString("left:" + valueLeft, 0,2);
 		check();
-		//dc.correctLeft();
 	}
 	
+	/**
+	 * Checks the current values for the ColorSensors versus the Threshold
+	 * 
+	 * @return void
+	 */
 	public void check(){
-		//System.out.println("Checking");
-		if (valueRight < dc.threshold && valueLeft > dc.threshold){ // && valueLeft > dc.threshold
-			//System.out.println("Correct right");
+		if (valueRight < dc.threshold && valueLeft > dc.threshold){ 
 			dc.correctRight();
 		}
 		
-		else if (valueLeft < dc.threshold && valueRight > dc.threshold){ // && valueRight > dc.threshold
-			//System.out.println("Correct left");
+		else if (valueLeft < dc.threshold && valueRight > dc.threshold){ 
 			dc.correctLeft();
 		}
 		else{
@@ -81,6 +92,11 @@ public class RobotController{
 		}
 	}
 
+	/**
+	 * Sets the robot to drive forward at maxSpeed.
+	 * 
+	 * @return void
+	 */
 	public void driveRobot() {
 		dc.drive(dc.maxSpeed);
 	}

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /**
  * 
- * @author Peter Markotic
+ * @author Peter Markotiç
  * @version 2.0
  * 
  * Extended version of UltrasonicSensor. Passes new values from polling
@@ -13,16 +13,14 @@ import java.util.ArrayList;
  *
  */
 public class MyUltrasonicSensor extends UltrasonicSensor implements UpdatingSensor  {
-	private ArrayList<SensorListener> SensorListeners;
-	private float oldValue;
-	private float newValue;	
+	private ArrayList<SensorListener> SensorListeners; /*!< This is the List of SensorListeners */
+	private float oldValue; /*!< This is the holding variable for the last value */
+	private float newValue;	 /*!< This is the holding variable for the current value */
 	
 	/**
-	 * 
-	 * @param SensorPort port
-	 * @return none
-	 * 
 	 * Constructor. Defines port and instantiates array.
+	 * 
+	 * @param port
 	 */
 	public MyUltrasonicSensor(SensorPort port) {
 		super(port);
@@ -30,22 +28,18 @@ public class MyUltrasonicSensor extends UltrasonicSensor implements UpdatingSens
 	}	
 	
 	/**
-	 * 
-	 * @param SensorListener lst
-	 * @return none
-	 * 
 	 * Add a SensorListener to pass values on to.
+	 * 
+	 * @param lst
 	 */
 	public void addListener(SensorListener lst){
 		SensorListeners.add(lst);	
 	}
 		
 	/**
-	 * @param none
-	 * @return none
+	 * Retrieves current sensor value, passes on to known SensorListeners if a change in value is detected.
 	 * 
-	 * Retrieves current sensor value, passes on to known
-	 * SensorListeners.
+	 * @return void
 	 */
 	public void updateState() {
 		newValue = getDistance();

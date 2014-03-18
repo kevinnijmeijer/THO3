@@ -1,0 +1,29 @@
+\hypertarget{class_main}{\section{Main Class Reference}
+\label{class_main}\index{Main@{Main}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_main_a8a5d0f827edddff706cc0e6740d0579a}{main} (String\mbox{[}$\,$\mbox{]} args)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_main_a8a5d0f827edddff706cc0e6740d0579a}{\index{Main@{Main}!main@{main}}
+\index{main@{main}!Main@{Main}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}static void Main.\-main (
+\begin{DoxyParamCaption}
+\item[{String\mbox{[}$\,$\mbox{]}}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_main_a8a5d0f827edddff706cc0e6740d0579a}
+\begin{DoxyAuthor}{Author}
+Peter Markotiç, Kevin Nijmijer, Michiel Tegelberg 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+3.\-0
+\end{DoxyVersion}
+The main thread starts by making a new instance of the \hyperlink{class_calibrate}{Calibrate} class. Then it calls Calibrate.\-calibrate\-Sensors() which prompts the user to go through the calibration process. After that the main thread makes an instance of \hyperlink{class_robot_controller}{Robot\-Controller} with the calibrated left and right My\-Color\-Sensors. Lastly the main calls \hyperlink{class_robot_controller_a81581974756705e965436ce7b9aff352}{Robot\-Controller.\-drive\-Robot()} which makes the robot drive autonomously. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Main.\-java\end{DoxyCompactItemize}
