@@ -1,4 +1,4 @@
-import lejos.nxt.*;
+
 
 public class Main {
 
@@ -6,11 +6,15 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		MovementController m = new MovementController();
-		
-		Button.waitForAnyPress();
 
-		m.jesusGrabTheWheel();
+		Calibrate c = new Calibrate();
+		c.calibrateSenors();
+		
+		RobotController rc = new RobotController(c.getRight(),c.getLeft());
+		rc.driveRobot(); 
+		
+		//Button.waitForAnyPress();
+
+		//m.jesusGrabTheWheel();
 	}	
 }
